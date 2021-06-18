@@ -1,0 +1,80 @@
+/*
+*********************************
+                                *
+    author: Aditya_619          *
+    lang  : c++14               *
+                                *
+*********************************
+*/
+
+#include<bits/stdc++.h>
+#define ll long long
+#define pb push_back
+#define ff first
+#define ss second
+#define fr(a,b) for(int i = a; i < b; i++)
+#define repz(i,z,n) for(int i = 0; i < n; i++)
+#define repo(i,o,n) for(int i = 1; i <= n; i++)
+#define vi vector<int>
+#define vs vector<string>
+#define mod 1000000007
+#define inf (1LL<<60)
+#define all(x) (x).begin(), (x).end()
+#define prDouble(x) cout << fixed << setprecision(10) << x
+#define triplet pair<ll,pair<ll,ll>>
+#define goog(tno) cout << "Case #" << tno <<": "
+#define fast_io ios_base::sync_with_stdio(false);cin.tie(NULL)
+#define read(x) int x; cin >> x
+
+
+using namespace std;
+
+void init_code() {
+   fast_io;
+#ifndef ONLINE_JUDGE
+   freopen("input.txt", "r", stdin);
+   freopen("output.txt", "w", stdout);
+#endif
+}
+
+int num1(int n) {
+   int count = 0;
+   while (n != 0) {
+      n = n & (n - 1);
+      count++;
+   }
+   return count;
+}
+
+void solve() {
+   int n, m, k;
+   cin >> n >> m >> k;
+   int x[1000];
+   for (int i = 0; i < m + 1; i++) {
+      cin >> x[i];
+   }
+   int temp, j = 0;
+   for (int i = 0; i < m; i++) {
+      temp = x[m] ^ x[i];
+      int ans = num1(temp);
+      if (ans <= k) {
+         j++;
+      }
+   }
+   cout << j;
+}
+
+int main() {
+   init_code();
+
+   // read(t);
+   // while (t--) {
+   //    solve();
+   // }
+
+   solve();
+
+
+
+   return 0;
+}
